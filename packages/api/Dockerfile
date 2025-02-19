@@ -1,19 +1,15 @@
-# Use Node.js official image as a base image
 FROM node:20
 
-# Set the working directory to the root of the monorepo
+# Set the working directory to the repository root
 WORKDIR /usr/src/app
 
-# Copy the root package files for npm workspaces
-COPY package.json ./
-
-# Install all dependencies defined in the workspaces
-RUN npm install
-
-# Copy all project files into the container
+# Copy the entire repository
 COPY . .
 
-# Set the working directory to the API service
+# Install dependencies for all workspaces (using npm ci or npm install)
+RUN npm install --production
+
+# Switch to the API service directory
 WORKDIR /usr/src/app/packages/api
 
 # Expose the API port

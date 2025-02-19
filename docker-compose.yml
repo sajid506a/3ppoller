@@ -12,4 +12,3 @@ services:
       dockerfile: packages/okta/Dockerfile
     ports:
       - "4000:4000"
-  # Additional services (e.g. o365) can be added here.

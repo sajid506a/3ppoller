@@ -1,19 +1,18 @@
 FROM node:20
 
+# Set the working directory to the repository root
 WORKDIR /usr/src/app
 
-# Copy the package files for the Okta service
-COPY package.json ./
-
-# Install dependencies (this assumes the workspace is already set up; adjust if needed)
-RUN npm install
-
-# Copy the entire project (or just the Okta service files)
+# Copy the entire repository
 COPY . .
 
+# Install dependencies for all workspaces
+RUN npm install --production
+
+# Switch to the Okta service directory
 WORKDIR /usr/src/app/packages/okta
 
-# Expose the port if the service listens on one (adjust port number as needed)
+# Expose the port if your collector listens on one (adjust port if needed)
 EXPOSE 4000
 
 # Start the Okta collector
