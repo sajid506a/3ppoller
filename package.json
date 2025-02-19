@@ -1,0 +1,10 @@
+{
+  "name": "log-collector-sdk",
+  "private": true,
+  "workspaces": [
+    "packages/core",
+    "packages/okta",
+    "packages/o365",
+    "packages/api"
+  ]
+}
