@@ -235,7 +235,7 @@ EOF
 # packages/okta/Dockerfile
 # ----------------------------
 cat > packages/okta/Dockerfile <<'EOF'
-FROM node:16
+FROM node:20
 
 WORKDIR /usr/src/app
 
